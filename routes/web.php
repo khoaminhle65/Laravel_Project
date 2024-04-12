@@ -18,11 +18,17 @@ Route::get('dashboard', [CrudUserController::class, 'dashboard']);
 Route::get('login', [CrudUserController::class, 'login'])->name('login');
 
 Route::post('login', [CrudUserController::class, 'authUser'])->name('user.authUser');
-Route::post('logout', [CrudUserController::class, 'signOut'])->name('signOut');
+
+Route::get('create', [CrudUserController::class, 'createUser'])->name('user.createUser');
+
+Route::post('create', [CrudUserController::class, 'postUser'])->name('user.postUser');
+
+Route::post('signOut', [CrudUserController::class, 'signOut'])->name('signOut');
 
 Route::get('list', [CrudUserController::class, 'listUser'])->name('user.list');
 
 Route::get('update', [CrudUserController::class, 'updateUser'])->name('user.updateUser');
+
 Route::post('update', [CrudUserController::class, 'postUpdateUser'])->name('user.postUpdateUser');
 
 Route::get('/', function () {
