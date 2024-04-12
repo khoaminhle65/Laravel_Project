@@ -34,7 +34,7 @@ Route::get('list', [CrudUserController::class, 'listUser'])->name('user.list');
 Route::get('update', [CrudUserController::class, 'updateUser'])->name('user.updateUser');
 
 Route::post('update', [CrudUserController::class, 'postUpdateUser'])->name('user.postUpdateUser');
-
+Route::get('signOut', [CrudUserController::class, 'signOut'])->name('signout');
 Route::get('/', function () {
     return view('welcome');
 });
