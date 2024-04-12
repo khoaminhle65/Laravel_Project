@@ -21,4 +21,3 @@ Route::post('update', [CrudUserController::class, 'postUpdateUser'])->name('user
 Route::get('/', function () {
     return view('welcome');
 });
-
