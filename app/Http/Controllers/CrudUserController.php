@@ -17,23 +17,15 @@ class CrudUserController extends Controller
     /**
      * Login page
      */
-<<<<<<< HEAD
     public function login()
     {
         return view('crud_user.login');
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/main
-=======
-    
->>>>>>> Update
 
     /**
      * User submit form login
      */
-<<<<<<< HEAD
     public function authUser(Request $request)
     {
         $request->validate([
@@ -51,29 +43,24 @@ class CrudUserController extends Controller
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
-=======
-    
->>>>>>> Update
 
     /**
      * Registration page
      */
-    
+
 
     /**
      * User submit form register
      */
-    
+   
 
     /**
      * View user detail page
      */
-   
 
     /**
      * Delete user by id
      */
-    
 
     /**
      * Form update user page
@@ -124,9 +111,8 @@ class CrudUserController extends Controller
         return redirect("login")->withSuccess('You are not allowed to access');
     } 
 
-
     /**
      * Sign out
      */
-    
+
 }
