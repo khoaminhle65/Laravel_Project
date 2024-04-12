@@ -114,5 +114,10 @@ class CrudUserController extends Controller
     /**
      * Sign out
      */
+    public function signOut() {
+        Session::flush();
+        Auth::logout();
 
+        return Redirect('login');
+    }
 }
