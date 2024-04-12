@@ -77,10 +77,22 @@ class CrudUserController extends Controller
     /**
      * View user detail page
      */
+    public function readUser(Request $request) {
+        $user_id = $request->get('id');
+        $user = User::find($user_id);
+
+        return view('crud_user.read', ['messi' => $user]);
+    }
 
     /**
      * Delete user by id
      */
+    public function deleteUser(Request $request) {
+        $user_id = $request->get('id');
+        $user = User::destroy($user_id);
+
+        return redirect("list")->withSuccess('You have signed-in');
+    }
 
     /**
      * Form update user page
