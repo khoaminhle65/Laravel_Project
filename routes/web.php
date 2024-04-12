@@ -1,6 +1,7 @@
 <?php
-use App\Http\Controllers\CrudUserController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CrudUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,16 @@ Route::get('dashboard', [CrudUserController::class, 'dashboard']);
 
 Route::get('login', [CrudUserController::class, 'login'])->name('login');
 
+<<<<<<< HEAD
 Route::post('login', [CrudUserController::class, 'authUser'])->name('user.authUser');
 
 Route::get('list', [CrudUserController::class, 'listUser'])->name('user.list');
 
+=======
+Route::get('update', [CrudUserController::class, 'updateUser'])->name('user.updateUser');
+Route::post('update', [CrudUserController::class, 'postUpdateUser'])->name('user.postUpdateUser');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+>>>>>>> Update
