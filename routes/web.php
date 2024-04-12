@@ -18,7 +18,5 @@ Route::get('login', [CrudUserController::class, 'login'])->name('login');
 
 Route::post('login', [CrudUserController::class, 'authUser'])->name('user.authUser');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('list', [CrudUserController::class, 'listUser'])->name('user.list');
 

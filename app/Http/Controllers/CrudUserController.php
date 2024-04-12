@@ -21,6 +21,10 @@ class CrudUserController extends Controller
     {
         return view('crud_user.login');
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 
     /**
      * User submit form login
@@ -74,6 +78,16 @@ class CrudUserController extends Controller
     /**
      * List of users
      */
+    public function listUser()
+    {
+        if(Auth::check()){
+            $users = User::paginate(2);
+            //$users = User::all();
+            return view('crud_user.list', ['users' => $users]);
+        }
+
+        return redirect("login")->withSuccess('You are not allowed to access');
+    } 
 
     /**
      * Sign out
