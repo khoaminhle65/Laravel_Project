@@ -22,7 +22,6 @@ class CrudUserController extends Controller
         return view('crud_user.login');
     }
 
-
     /**
      * User submit form login
      */
@@ -31,6 +30,7 @@ class CrudUserController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
+            
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -43,7 +43,6 @@ class CrudUserController extends Controller
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
-
     /**
      * Registration page
      */
@@ -51,7 +50,6 @@ class CrudUserController extends Controller
     {
         return view('crud_user.create');
     }
-
 
     /**
      * User submit form register
@@ -61,12 +59,14 @@ class CrudUserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
+            'mssv' => 'required',
             'password' => 'required|min:6',
         ]);
 
         $data = $request->all();
         $check = User::create([
             'name' => $data['name'],
+            'mssv' => $data['mssv'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
@@ -101,7 +101,7 @@ class CrudUserController extends Controller
     {
         $user_id = $request->get('id');
         $user = User::find($user_id);
-        
+
         return view('crud_user.update', ['user' => $user]);
     }
 
@@ -114,18 +114,18 @@ class CrudUserController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'mssv' =>'required',
             'email' => 'required|email|unique:users,id,'.$input['id'],
-            'password' => 'required|min:6|same:password_confirmation',
-            'password_confirmation' => 'required|min:6'
+            'password' => 'required|min:6',
         ]);
 
        $user = User::find($input['id']);
        $user->name = $input['name'];
+       $user->mssv = $input['mssv'];
        $user->email = $input['email'];
-       //$user->password = $input['password'];
-       $user->password = bcrypt($input['password']);
+       $user->password = $input['password'];
        $user->save();
-        
+
         return redirect("list")->withSuccess('You have signed-in');
     }
 
@@ -141,7 +141,7 @@ class CrudUserController extends Controller
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
-    } 
+    }
 
     /**
      * Sign out
