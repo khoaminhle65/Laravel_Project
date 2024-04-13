@@ -28,6 +28,19 @@
                             </div>
                             <div class="form-group mb-3">
                             <div class="row">
+                            <div class="col-md-3">
+                                <label for="name" class="form-label">Mssv</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" placeholder="mssv" id="mssv" class="form-control" name="mssv" value="{{ $user->mssv }}" required autofocus>
+                                @if ($errors->has('mssv'))
+                                    <span class="text-danger">{{ $errors->first('mssv') }}</span>
+                                @endif
+                                </div>
+                            </div>
+                            </div>
+                            <div class="form-group mb-3">
+                            <div class="row">
                                 <div class="col-md-3">
                                 <label for="password" class="form-label">Mật khẩu</label>
                             </div>
